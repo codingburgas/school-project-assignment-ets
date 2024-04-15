@@ -2,6 +2,7 @@
 #define SIGNIN_H
 
 #include <QWidget>
+#include "chat.h"
 
 namespace Ui {
 class SignIn;
@@ -20,6 +21,7 @@ private slots:
 
 private:
     Ui::SignIn *ui;
+    std::shared_ptr<Chat> chatScene;
 };
 
 #endif // SIGNIN_H

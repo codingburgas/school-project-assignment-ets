@@ -18,6 +18,10 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_adminButton_clicked();
+
+    void on_chatButton_clicked();
+
 private:
     Ui::BlueprintWidget *ui;
     std::shared_ptr<SignIn> signInScene;

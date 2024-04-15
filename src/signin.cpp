@@ -7,6 +7,7 @@ SignIn::SignIn(QWidget *parent)
     , ui(new Ui::SignIn)
 {
     ui->setupUi(this);
+    chatScene = std::make_shared<Chat>();
 }
 
 SignIn::~SignIn()
@@ -21,7 +22,8 @@ void SignIn::on_pushButton_clicked()
 
     if(email == "test" && password == "test")
     {
-        QMessageBox::information(this, "Login", "Your credentials are correct!");
+        this->hide();
+        chatScene->show();
     }
     else
     {

@@ -4,7 +4,7 @@
 #include <QMessageBox>
 #include <QGraphicsScene>
 #include <QGraphicsView>
-#include <QPixMap>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)

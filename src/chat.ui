@@ -6,13 +6,30 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1352</width>
-    <height>784</height>
+    <width>1512</width>
+    <height>982</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>120</width>
+     <height>981</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 30px;
+background-color: #1B262C;</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
