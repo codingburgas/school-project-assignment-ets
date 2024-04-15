@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SignIn</class>
+ <widget class="QWidget" name="SignIn">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1352</width>
+    <height>784</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+    <bold>true</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #052439;</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>160</y>
+     <width>501</width>
+     <height>451</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #FFFFFF;
+border-radius: 12px;</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>231</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+font-size: 60px;
+font-weight: bold; 
+font-family: Robotto;
+background-color: transparent;</string>
+    </property>
+    <property name="text">
+     <string>Sign In</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>339</x>
+      <y>381</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #D9D9D9;
+color: black;
+font-weight: 600;
+</string>
+    </property>
+    <property name="text">
+     <string>Sign In</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>120</y>
+      <width>451</width>
+      <height>98</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;
+color: black;
+font-weight: bold;</string>
+       </property>
+       <property name="text">
+        <string>Email address</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEditEmail">
+       <property name="styleSheet">
+        <string notr="true">color: black;
+background-color: #D9D9D9;
+height: 45px;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>230</y>
+      <width>451</width>
+      <height>98</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;
+color: black;
+font-weight: bold;</string>
+       </property>
+       <property name="text">
+        <string>Password</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEditPassword">
+       <property name="styleSheet">
+        <string notr="true">color: black;
+background-color: #D9D9D9;
+height: 45px;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

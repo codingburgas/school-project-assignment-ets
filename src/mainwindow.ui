@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -9,6 +12,11 @@
     <width>1352</width>
     <height>784</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -18,72 +26,93 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #394867, stop:1 #212A3E);</string>
+    <string notr="true">background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0F4C75, stop:1 #3282B8);</string>
    </property>
-   <widget class="QLabel" name="mainLabel">
+   <widget class="QPushButton" name="quitButton">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>120</y>
-      <width>271</width>
-      <height>131</height>
+      <x>30</x>
+      <y>690</y>
+      <width>75</width>
+      <height>24</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #052439;
+color: white;
+border-radius: 8px;</string>
+    </property>
+    <property name="text">
+     <string>Quit</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="openBlueprintButton">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>350</y>
+      <width>281</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #6B9EFE;
+height: 100px;
+border-radius: 10px;
+color: white;
+font-weight: bold;
+font-size: 25px;</string>
+    </property>
+    <property name="text">
+     <string>Start browsing!</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ETSlabel">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>20</y>
+      <width>539</width>
+      <height>316</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="minimumSize">
      <size>
-      <width>0</width>
-      <height>16</height>
+      <width>539</width>
+      <height>316</height>
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-font-size: 150px;
-background-color: transparent;</string>
+     <string notr="true">background-color: transparent;
+text-align: center;
+font-size: 100px;
+font-weight: bold;
+qproperty-alignment: AlignCenter;
+color: white;
+font-family: Montserrat;</string>
     </property>
     <property name="text">
      <string>ETS</string>
     </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>370</y>
-      <width>301</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #9BA4B5;
-border: none;
-border-radius: 10px;
-font-size: 30px;
-color: white;
-</string>
-    </property>
-    <property name="text">
-     <string>Start Browsing!</string>
+    <property name="buddy">
+     <cstring>openBlueprintButton</cstring>
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1352</width>
-     <height>43</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuThis_is_ETS">
-    <property name="title">
-     <string>This is ETS</string>
-    </property>
-   </widget>
-   <addaction name="menuThis_is_ETS"/>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>openBlueprintButton</tabstop>
+  <tabstop>quitButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
