@@ -2,6 +2,7 @@
 #define REGISTER_H
 
 #include <QWidget>
+#include "chat.h"
 
 namespace Ui {
 class Register;
@@ -15,8 +16,12 @@ public:
     explicit Register(QWidget *parent = nullptr);
     ~Register();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Register *ui;
+    std::shared_ptr<Chat> chatScene;
 };
 
 #endif // REGISTER_H
