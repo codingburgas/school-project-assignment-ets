@@ -10,17 +10,20 @@ CONFIG += c++17
 
 SOURCES += \
     blueprintwidget.cpp \
+    chat.cpp \
     main.cpp \
     mainwindow.cpp \
     signin.cpp
 
 HEADERS += \
     blueprintwidget.h \
+    chat.h \
     mainwindow.h \
     signin.h
 
 FORMS += \
     blueprintwidget.ui \
+    chat.ui \
     mainwindow.ui \
     signin.ui
 

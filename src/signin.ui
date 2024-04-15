@@ -107,7 +107,8 @@ font-weight: bold;</string>
        <property name="styleSheet">
         <string notr="true">color: black;
 background-color: #D9D9D9;
-height: 45px;</string>
+height: 45px;
+font-size: 25px;</string>
        </property>
       </widget>
      </item>
@@ -140,7 +141,8 @@ font-weight: bold;</string>
        <property name="styleSheet">
         <string notr="true">color: black;
 background-color: #D9D9D9;
-height: 45px;</string>
+height: 45px;
+font-size: 25px;</string>
        </property>
       </widget>
      </item>
@@ -148,6 +150,11 @@ height: 45px;</string>
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>lineEditEmail</tabstop>
+  <tabstop>lineEditPassword</tabstop>
+  <tabstop>pushButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
