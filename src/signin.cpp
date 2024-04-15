@@ -8,6 +8,7 @@ SignIn::SignIn(QWidget *parent)
 {
     ui->setupUi(this);
     chatScene = std::make_shared<Chat>();
+    registerScene = std::make_shared<Register>();
 }
 
 SignIn::~SignIn()
@@ -29,5 +30,12 @@ void SignIn::on_pushButton_clicked()
     {
         QMessageBox::warning(this, "Login", "Wrong username or password");
     }
+}
+
+
+void SignIn::on_pushButton_3_clicked()
+{
+    this->hide();
+    registerScene->show();
 }
 

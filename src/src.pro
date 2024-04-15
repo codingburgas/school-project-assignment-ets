@@ -16,6 +16,7 @@ SOURCES += \
     chat.cpp \
     main.cpp \
     mainwindow.cpp \
+    register.cpp \
     signin.cpp \
     supabasemanager.cpp
 
@@ -23,6 +24,7 @@ HEADERS += \
     blueprintwidget.h \
     chat.h \
     mainwindow.h \
+    register.h \
     signin.h \
     supabasemanager.h
 
@@ -30,6 +32,7 @@ FORMS += \
     blueprintwidget.ui \
     chat.ui \
     mainwindow.ui \
+    register.ui \
     signin.ui
 
 # Default rules for deployment.

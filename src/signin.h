@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "chat.h"
-
+#include "register.h"
 namespace Ui {
 class SignIn;
 }
@@ -19,9 +19,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::SignIn *ui;
     std::shared_ptr<Chat> chatScene;
+    std::shared_ptr<Register> registerScene;
 };
 
 #endif // SIGNIN_H
