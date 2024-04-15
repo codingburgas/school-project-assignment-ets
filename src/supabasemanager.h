@@ -3,6 +3,12 @@
 
 #include <QObject>
 #include <QtNetwork/QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QDebug>
 
 class SupabaseManager : public QObject
 {

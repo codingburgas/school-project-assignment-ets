@@ -7,9 +7,9 @@
 #include <QDebug>
 
 SupabaseManager::SupabaseManager(QObject *parent) : QObject(parent) {
-    m_baseUrl = "YOUR_SUPABASE_URL";
-    m_apiKey = "YOUR_SUPABASE_API_KEY";
-    m_projectId = "YOUR_SUPABASE_PROJECT_ID";
+    m_baseUrl = "https://egyfjgomyvvhoyfizfbk.supabase.co";
+    m_apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVneWZqZ29teXZ2aG95Zml6ZmJrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTMyMjAwMTIsImV4cCI6MjAyODc5NjAxMn0.VWJntRRSsB4SbHWhAcSv7fWykdEfWikMYlzYwcG5zMg";
+    m_projectId = "egyfjgomyvvhoyfizfbk";
 }
 
 void SupabaseManager::fetchDataFromTable(const QString &tableName) {
