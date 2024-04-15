@@ -1,4 +1,7 @@
 QT       += core gui
+QT += network
+QT += core network
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,13 +16,15 @@ SOURCES += \
     chat.cpp \
     main.cpp \
     mainwindow.cpp \
-    signin.cpp
+    signin.cpp \
+    supabasemanager.cpp
 
 HEADERS += \
     blueprintwidget.h \
     chat.h \
     mainwindow.h \
-    signin.h
+    signin.h \
+    supabasemanager.h
 
 FORMS += \
     blueprintwidget.ui \
@@ -31,3 +36,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    blueprint.qrc

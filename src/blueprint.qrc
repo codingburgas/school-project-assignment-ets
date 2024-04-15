@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/assets">
+        <file>assets/blueprint-background.png</file>
+        <file>assets/AdminButton.png</file>
+        <file>assets/ChatButton.png</file>
+        <file>assets/CourseButton.png</file>
+        <file>assets/HomeButton.png</file>
+        <file>assets/MagnifyingButton.png</file>
+        <file>assets/ProfileButton.webp</file>
+        <file>assets/SaveButton.png</file>
+    </qresource>
+</RCC>
