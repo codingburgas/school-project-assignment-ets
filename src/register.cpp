@@ -20,7 +20,7 @@ void Register::on_pushButton_clicked()
     this->hide();
     QString fullName = ui->lineEditFullName->text();
     QString email = ui->lineEditEmail->text();
-    QString password = ui->lineEditPassword->text();
+    QString password = ui->password->text();
     qDebug() << fullName << email << password;
     chatScene->show();
 }
