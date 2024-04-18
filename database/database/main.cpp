@@ -49,7 +49,7 @@ size_t getLastIdFromFile(const string& fileName) {
     return lastId;
 }
 
-Subject getSubjectById(const string& fileName, size_t targetId) {
+ Subject getSubjectById(const string& fileName, size_t targetId) {
     std::ifstream infile(fileName);
 
     if (!infile.is_open()) {
@@ -71,8 +71,32 @@ Subject getSubjectById(const string& fileName, size_t targetId) {
 
     infile.close();
     // If the ID is not found, return a student with ID 0
-    return { 0, "" };
+    return { 0, ""};
 }
+
+ StudentSubjectsGrades getStudentSubjectGradeById(const string& fileName, size_t targetId) {
+     std::ifstream infile(fileName);
+     if (!infile.is_open()) {
+         throw std::runtime_error("File couldn't be opened");
+     }
+
+     StudentSubjectsGrades ssg;
+     string line;
+     while (getline(infile, line)) {
+         std::istringstream iss(line);
+         char separator;
+         if (iss >> ssg.id >> separator >> ssg.studentId >> separator >> ssg.subjectId >> separator >> ssg.grade) {
+             if (ssg.id == targetId) {
+                 infile.close();
+                 return ssg; // Return the found StudentSubjectsGrades object
+             }
+         }
+     }
+
+     infile.close();
+     // If the ID is not found, return an empty StudentSubjectsGrades object
+     return { 0, 0, 0, 0.0 };
+ }
 
 Student getStudentById(const string& fileName, size_t targetId) {
     std::ifstream infile(fileName);
@@ -100,39 +124,40 @@ Student getStudentById(const string& fileName, size_t targetId) {
 }
 
 int main() {
-    std::vector<Student> students;
-    std::vector<string> subjectNames;
 
-    // Read subjects from a file
-    std::ifstream subjectFile("subjects.txt");
-    string line;
-    while (getline(subjectFile, line)) {
-        subjectNames.push_back(line);
-    }
-    subjectFile.close();
-
-    for (int i = 0; i < 3; i++) {
         Student stud;
         cin >> stud.firstName;
         cin >> stud.middleName;
         cin >> stud.lastName;
-        stud.id = getLastIdFromFile("students.txt") + i + 1;
-
-        students.push_back(stud);
-    }
+        stud.id = getLastIdFromFile("students.txt") + 1;  
 
     std::ofstream writeFile("students.txt", std::ios::app); // Open in append mode
     if (writeFile.is_open()) {
-        for (const auto& stud : students) {
-            writeFile << stud.id << " - " << stud.firstName << " - "
+            writeFile << stud.id << " - "<< stud.firstName << " - "
                 << stud.middleName << " - " << stud.lastName << "\n";
-        }
         writeFile.close();
         std::cout << "Data written to students.txt\n";
     }
     else {
         std::cout << "Unable to open file for writing\n";
     }
+
+    StudentSubjectsGrades ssg;
+    cin >> ssg.studentId;
+    cin >> ssg.subjectId;
+    cin >> ssg.grade;
+    ssg.id = getLastIdFromFile("StudentSubjectsGrades.txt") + 1;
+
+    std::ofstream writeFile1("StudentSubjectsGrades.txt", std::ios::app);
+    if (writeFile1.is_open()) {
+        writeFile1 << ssg.id << " - " << ssg.studentId << " - " << ssg.subjectId << " - " << ssg.grade << "\n";
+        writeFile1.close();
+        std::cout << "Data written to StudentSubjectsGrades.txt\n";
+    }
+    else {
+        std::cout << "Unable to open file for writing\n";
+    }
+
     // Searching for a student by ID
     size_t targetId;
     std::cout << "Enter the ID to search for: ";
@@ -157,12 +182,33 @@ int main() {
     try {
         Subject foundSubject = getSubjectById("subjects.txt", targetId);
         if (foundSubject.id != 0) {
-            std::cout << "Student found:\n";
+            std::cout << "subjects found:\n";
             std::cout << "ID: " << foundSubject.id << "\n";
-            std::cout << "Name: " << foundSubject.name << "\n";
+            std::cout << "Name: " << foundSubject.name <<"\n";
         }
         else {
             std::cout << "Student with ID " << targetId << " not found.\n";
+        }
+    }
+    catch (const std::runtime_error& e) {
+        std::cerr << "Error: " << e.what() << "\n";
+        return 1;
+    }
+
+
+    try {
+        // Retrieve the StudentSubjectsGrades object by ID
+        StudentSubjectsGrades foundSSG = getStudentSubjectGradeById("StudentSubjectsGrades.txt", targetId);
+
+        if (foundSSG.id != 0) {
+            std::cout << "StudentSubjectGrade found:\n";
+            std::cout << "ID: " << foundSSG.id << "\n";
+            std::cout << "Student ID: " << foundSSG.studentId << "\n";
+            std::cout << "Subject ID: " << foundSSG.subjectId << "\n";
+            std::cout << "Grade: " << foundSSG.grade << "\n";
+        }
+        else {
+            std::cout << "StudentSubjectGrade with ID " << targetId << " not found.\n";
         }
     }
     catch (const std::runtime_error& e) {
