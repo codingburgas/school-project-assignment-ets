@@ -33,7 +33,8 @@ FORMS += \
     chat.ui \
     mainwindow.ui \
     register.ui \
-    signin.ui
+    signin.ui \
+    subject.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
