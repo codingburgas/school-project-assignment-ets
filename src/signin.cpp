@@ -21,14 +21,34 @@ void SignIn::on_pushButton_clicked()
     QString email = ui->lineEditEmail->text();
     QString password = ui->lineEditPassword->text();
 
-    if(email == "test" && password == "test")
-    {
-        this->hide();
-        chatScene->show();
+    std::shared_ptr<DatabaseManager> instance = DatabaseManager::GetInstance();
+    QSqlDatabase db = instance->GetDatabase();
+
+    if (!db.open()) {
+        qDebug() << "Failed to open database:" << db.lastError().text();
+        return;
     }
-    else
     {
-        QMessageBox::warning(this, "Login", "Wrong username or password");
+        QString cipheredPassword = Encrypt(password);
+        QString queryString = "SELECT COUNT(*) FROM users WHERE email = :email AND password = :password";
+        QSqlQuery query;
+        query.prepare(queryString);
+        query.bindValue(":email", email);
+        query.bindValue(":password", cipheredPassword);
+
+        if (query.exec()) {
+            if(query.next()){
+                int check = query.value(0).toInt();
+                if(check>0){
+                    chatScene->show();
+                }
+                else {
+                    qDebug() << "Wrong credentials";
+                }
+            }
+        } else {
+            qDebug() << "Failed to add record:" << query.lastError().text();
+        }
     }
 }
 

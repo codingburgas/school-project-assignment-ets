@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "chat.h"
 #include "register.h"
+#include "databaseManager.h"
+#include "encrypt.h"
+#include "QDebug.h"
 namespace Ui {
 class SignIn;
 }
