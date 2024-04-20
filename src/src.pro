@@ -14,6 +14,7 @@ CONFIG += c++17
 SOURCES += \
     blueprintwidget.cpp \
     chat.cpp \
+    databaseManager.cpp \
     main.cpp \
     mainwindow.cpp \
     register.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
 HEADERS += \
     blueprintwidget.h \
     chat.h \
+    databaseManager.h \
     mainwindow.h \
     register.h \
     signin.h
