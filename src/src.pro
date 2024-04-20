@@ -18,9 +18,11 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     register.cpp \
+    encrypt.cpp \
     signin.cpp
 
 HEADERS += \
+    encrypt.h \
     blueprintwidget.h \
     chat.h \
     databaseManager.h \
