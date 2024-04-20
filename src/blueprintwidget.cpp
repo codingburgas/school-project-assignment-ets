@@ -4,7 +4,6 @@
 #include <QDir>
 #include <QDebug>
 
-
 BlueprintWidget::BlueprintWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::BlueprintWidget)
@@ -14,12 +13,19 @@ BlueprintWidget::BlueprintWidget(QWidget *parent)
     QPixmap blueprintPix(assetPath + "blueprint-background.png");
     ui->blueprintPic->setPixmap(blueprintPix);
     signInScene = std::make_shared<SignIn>();
-    QPixmap chatPix(assetPath + "ChatButton.png");
-    ui->chatPic->setPixmap(chatPix);
-    QPixmap adminPic(assetPath + "AdminButton.png");
-    ui->adminPic->setPixmap(adminPic);
-    QPixmap coursePix(assetPath + "CourseButton.png");
-    ui->coursePic->setPixmap(coursePix);
+
+    QSize iconSize(50,50);
+    QIcon chatIcon(assetPath + "ChatButton.png");
+    ui->chatButton->setIcon(chatIcon);
+    ui->chatButton->setIconSize(iconSize);
+
+    QIcon adminIcon(assetPath + "AdminButton.png");
+    ui->adminButton->setIcon(adminIcon);
+    ui->adminButton->setIconSize(iconSize);
+
+    QIcon courseIcon(assetPath + "CourseButton.png");
+    ui->pushButton->setIcon(courseIcon);
+    ui->pushButton->setIconSize(iconSize);
 }
 BlueprintWidget::~BlueprintWidget()
 {

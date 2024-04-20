@@ -34,10 +34,10 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>210</y>
-     <width>191</width>
-     <height>111</height>
+     <x>170</x>
+     <y>160</y>
+     <width>221</width>
+     <height>351</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -50,11 +50,14 @@
   <widget class="QPushButton" name="adminButton">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>260</y>
-     <width>191</width>
-     <height>111</height>
+     <x>530</x>
+     <y>150</y>
+     <width>411</width>
+     <height>311</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;</string>
    </property>
    <property name="text">
     <string/>
@@ -63,50 +66,14 @@
   <widget class="QPushButton" name="chatButton">
    <property name="geometry">
     <rect>
-     <x>950</x>
-     <y>260</y>
-     <width>191</width>
-     <height>111</height>
+     <x>940</x>
+     <y>140</y>
+     <width>251</width>
+     <height>381</height>
     </rect>
    </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="coursePic">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>230</y>
-     <width>91</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="adminPic">
-   <property name="geometry">
-    <rect>
-     <x>650</x>
-     <y>280</y>
-     <width>91</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="chatPic">
-   <property name="geometry">
-    <rect>
-     <x>1020</x>
-     <y>280</y>
-     <width>91</width>
-     <height>71</height>
-    </rect>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;</string>
    </property>
    <property name="text">
     <string/>
