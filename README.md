@@ -42,7 +42,7 @@
 ## 🎬 Demo of the project 
   
   <p align="center">
-  <img src="https://media.discordapp.net/attachments/1042840307009605632/1231185887929307217/demo.png?ex=66360a36&is=66239536&hm=9bc27bdea73738a9f16251d50408531c27308bf48cc78f444d6dcda701cfc94a&=&format=webp&quality=lossless&width=918&height=552" width = "600px" height="auto" >
+  <img src="https://media.discordapp.net/attachments/1042840307009605632/1231211889028108298/Group_3.png?ex=6636226d&is=6623ad6d&hm=2209cff6d52a7ae4877349c74c3037000b096533dd4e7175563ce6041d901b98&=&format=webp&quality=lossless&width=918&height=552" width = "600px" height="auto" >
   </p
 
    ## ⚙️ Installation	<a name = "installation"></a>
