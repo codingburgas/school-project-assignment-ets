@@ -21,13 +21,12 @@ void Register::on_pushButton_clicked()
     QString email = ui->lineEditEmail->text();
     QString password = ui->password->text();
     std::shared_ptr<DatabaseManager> instance = DatabaseManager::GetInstance();
-    QSqlDatabase db;
+    QSqlDatabase db = instance->GetDatabase();
 
     if (!db.open()) {
         qDebug() << "Failed to open database:" << db.lastError().text();
         return;
     }
-
     {
         QString cipheredPassword = Encrypt(password);
         QString queryString = "INSERT INTO users (username, email, password) VALUES(:username, :email, :password)";
@@ -44,5 +43,6 @@ void Register::on_pushButton_clicked()
         }
     }
     chatScene->show();
+    db.close();
 }
 
