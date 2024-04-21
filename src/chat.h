@@ -15,6 +15,17 @@ public:
     explicit Chat(QWidget *parent = nullptr);
     ~Chat();
 
+private slots:
+    void on_adminButton_clicked();
+
+    void on_chatButton_clicked();
+
+    void on_courseButton_clicked();
+
+    void on_homeButton_clicked();
+
+    void on_sendMessage_clicked();
+
 private:
     Ui::Chat *ui;
 };

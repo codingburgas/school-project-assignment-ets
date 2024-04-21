@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "chat.h"
+#include "databaseManager.h"
+#include "encrypt.h"
 
 namespace Ui {
 class Register;

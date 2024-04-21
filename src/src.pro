@@ -1,7 +1,7 @@
 QT       += core gui
 QT += network
 QT += core network
-
+QT += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,19 +14,21 @@ CONFIG += c++17
 SOURCES += \
     blueprintwidget.cpp \
     chat.cpp \
+    databaseManager.cpp \
     main.cpp \
     mainwindow.cpp \
     register.cpp \
-    signin.cpp \
-    supabasemanager.cpp
+    encrypt.cpp \
+    signin.cpp
 
 HEADERS += \
+    encrypt.h \
     blueprintwidget.h \
     chat.h \
+    databaseManager.h \
     mainwindow.h \
     register.h \
-    signin.h \
-    supabasemanager.h
+    signin.h
 
 FORMS += \
     blueprintwidget.ui \

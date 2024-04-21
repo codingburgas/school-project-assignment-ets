@@ -1,17 +1,18 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "supabasemanager.h"
 #include <QDebug>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <databaseManager.h>
+#include <memory>
 
 int main(int argc, char *argv[])
 {
-
-    SupabaseManager supabaseManager;
-    supabaseManager.fetchDataFromTable("table_name");
-
-
     QApplication app(argc, argv);
     MainWindow window;
     window.show();
-    return app.exec();
+
+    int result = app.exec();
+
+    return result;
 }
