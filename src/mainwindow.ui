@@ -107,9 +107,23 @@ font-family: Montserrat;</string>
      <cstring>openBlueprintButton</cstring>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>200</y>
+      <width>221</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Chat</string>
+    </property>
+   </widget>
    <zorder>ETSlabel</zorder>
    <zorder>quitButton</zorder>
    <zorder>openBlueprintButton</zorder>
+   <zorder>pushButton</zorder>
   </widget>
  </widget>
  <tabstops>

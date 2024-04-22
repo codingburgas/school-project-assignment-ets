@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include "blueprintwidget.h"
+#include "chat.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -29,6 +30,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     std::shared_ptr<BlueprintWidget> secondScene;
+    std::shared_ptr<Chat> chatScene;
 };
 
 #endif

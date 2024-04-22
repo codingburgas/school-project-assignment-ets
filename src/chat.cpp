@@ -1,8 +1,9 @@
 #include "chat.h"
 #include "ui_chat.h"
+#include "profilewidget.h"
+#include "searchUser.h"
 
-Chat::Chat(QWidget *parent)
-    : QWidget(parent)
+Chat::Chat(QWidget *parent) : QWidget(parent)
     , ui(new Ui::Chat)
 {
     ui->setupUi(this);
@@ -25,10 +26,17 @@ Chat::Chat(QWidget *parent)
     ui->chatButton->setIcon(chatIcon);
     ui->chatButton->setIconSize(iconSize);
 
-    QSize iconSize2(20,20);
+    QSize iconSize2(30,30);
     QIcon saveIcon(assetPath + "SaveButton.png");
     ui->sendMessage->setIcon(saveIcon);
     ui->sendMessage->setIconSize(iconSize2);
+
+    ui->searchBar->setPlaceholderText("Search...");
+    ui->messageField->setPlaceholderText("Type a message...");
+
+    profilesLayout = new QVBoxLayout(ui->profilesTab);
+
+
 }
 
 Chat::~Chat()
@@ -63,5 +71,22 @@ void Chat::on_homeButton_clicked()
 void Chat::on_sendMessage_clicked()
 {
 
+}
+
+void Chat::on_searchBar_textChanged(const QString &arg1)
+{
+    userList = SearchUsersByUsername(arg1);
+
+    while (QLayoutItem* item = profilesLayout->takeAt(0)) {
+        delete item->widget();
+        delete item;
+    }
+    for (size_t i = 0; i < userList.size(); ++i) {
+        const QString &profileUsername = userList[i].GetUsername();
+        // Create a ProfileWidget instance with the name
+        ProfileWidget *profileWidget = new ProfileWidget(profileUsername, this);
+        profilesLayout->addWidget(profileWidget);
+    }
+    ui->profilesTab->setLayout(profilesLayout);
 }
 

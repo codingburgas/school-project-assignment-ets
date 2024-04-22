@@ -17,9 +17,12 @@ SOURCES += \
     databaseManager.cpp \
     main.cpp \
     mainwindow.cpp \
+    profilewidget.cpp \
     register.cpp \
     encrypt.cpp \
-    signin.cpp
+    searchUser.cpp \
+    signin.cpp \
+    user.cpp
 
 HEADERS += \
     encrypt.h \
@@ -27,8 +30,11 @@ HEADERS += \
     chat.h \
     databaseManager.h \
     mainwindow.h \
+    profilewidget.h \
     register.h \
-    signin.h
+    searchUser.h \
+    signin.h \
+    user.h
 
 FORMS += \
     blueprintwidget.ui \
