@@ -17,6 +17,8 @@ public:
     ~Chat();
     static void SetOtherUser(const User& other);
     static User& GetOtherUser();
+    static void SetUser(const User& user);
+    static User& GetUser();
 private slots:
     void on_adminButton_clicked();
 
@@ -35,6 +37,7 @@ private:
     std::vector<User> userList;
     QVBoxLayout *profilesLayout;
     static User otherUser;
+    static User user;
 };
 
 #endif // CHAT_H

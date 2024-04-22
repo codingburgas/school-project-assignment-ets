@@ -2,6 +2,8 @@
 #include "signin.h"
 #include "ui_signin.h"
 #include <QMessageBox>
+#include "user.h"
+#include "searchUser.h"
 SignIn::SignIn(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::SignIn)
@@ -40,6 +42,7 @@ void SignIn::on_pushButton_clicked()
             if(query.next()){
                 int check = query.value(0).toInt();
                 if(check>0){
+                    Chat::SetUser(GetUserByEmailAndPassword(email, password));
                     chatScene->show();
                 }
                 else {

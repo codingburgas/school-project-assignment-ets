@@ -6,4 +6,6 @@
 
 std::vector<User> SearchUsersByUsername(const QString& username);
 
+User GetUserByEmailAndPassword(const QString& email, const QString& password);
+
 #endif // SEARCHUSER_H

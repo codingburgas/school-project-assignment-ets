@@ -98,13 +98,22 @@ void Chat::on_searchBar_textChanged(const QString &arg1)
 }
 
 User Chat::otherUser;
+User Chat::user;
 
 void Chat::SetOtherUser(const User& other){
     otherUser = other;
 
 }
-
 User& Chat::GetOtherUser(){
     return otherUser;
 }
+
+void Chat::SetUser(const User& other){
+    user = other;
+
+}
+User& Chat::GetUser(){
+    return user;
+}
+
 
