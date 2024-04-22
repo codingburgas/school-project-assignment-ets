@@ -1,5 +1,7 @@
 #include "register.h"
 #include "ui_register.h"
+#include "chat.h"
+#include "searchUser.h"
 
 Register::Register(QWidget *parent)
     : QWidget(parent)
@@ -43,6 +45,7 @@ void Register::on_pushButton_clicked()
         }
     }
     chatScene->show();
+    Chat::SetUser(GetUserByEmailAndPassword(email, password));
     db.close();
 }
 
