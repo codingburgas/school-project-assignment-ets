@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 class ProfileWidget : public QWidget
@@ -11,6 +12,9 @@ class ProfileWidget : public QWidget
 
 public:
     explicit ProfileWidget(const QString &name, QWidget *parent = nullptr);
+
+private slots:
+    void onButtonClicked();
 
 private:
     QLabel *nameLabel;

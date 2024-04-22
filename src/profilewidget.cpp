@@ -9,10 +9,19 @@ ProfileWidget::ProfileWidget(const QString &name, QWidget *parent)
 
     nameLabel = new QLabel(name, this);
 
+    QPushButton *button = new QPushButton("Click me", this); // Create a button
+    connect(button, &QPushButton::clicked, this, &ProfileWidget::onButtonClicked); // Connect its clicked signal to a slot
+
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(nameLabel);
+    layout->addWidget(button); // Add the button to the layout
 
     setFixedHeight(100);
 
     setLayout(layout);
+}
+
+void ProfileWidget::onButtonClicked() {
+    // Slot function to handle button click
+    qDebug() << "Button clicked for profile:" << nameLabel->text();
 }
