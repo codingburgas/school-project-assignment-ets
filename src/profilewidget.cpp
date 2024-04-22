@@ -12,5 +12,7 @@ ProfileWidget::ProfileWidget(const QString &name, QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(nameLabel);
 
+    setFixedHeight(100);
+
     setLayout(layout);
 }

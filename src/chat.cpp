@@ -76,7 +76,6 @@ void Chat::on_sendMessage_clicked()
 void Chat::on_searchBar_textChanged(const QString &arg1)
 {
     userList = SearchUsersByUsername(arg1);
-    // ui->groupBox_2->setStyleSheet("background-color: lightgray; border: 1px solid gray; padding: 10px;");
 
     while (QLayoutItem* item = profilesLayout->takeAt(0)) {
         delete item->widget();
