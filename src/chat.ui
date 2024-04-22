@@ -285,6 +285,22 @@ color: black;
 font-weight: 100px;</string>
     </property>
    </widget>
+   <widget class="QGroupBox" name="profilesTab">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>99</y>
+      <width>381</width>
+      <height>871</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <zorder>groupBox_3</zorder>
   <zorder>groupBox</zorder>

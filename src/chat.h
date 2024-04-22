@@ -26,6 +26,8 @@ private slots:
 
     void on_sendMessage_clicked();
 
+    void on_searchBar_textChanged(const QString &arg1);
+
 private:
     Ui::Chat *ui;
 };
