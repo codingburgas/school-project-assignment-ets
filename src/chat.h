@@ -15,7 +15,8 @@ class Chat : public QWidget
 public:
     explicit Chat(QWidget *parent = nullptr);
     ~Chat();
-
+    static void SetOtherUser(const User& other);
+    static User& GetOtherUser();
 private slots:
     void on_adminButton_clicked();
 
@@ -33,6 +34,7 @@ private:
     Ui::Chat *ui;
     std::vector<User> userList;
     QVBoxLayout *profilesLayout;
+    static User otherUser;
 };
 
 #endif // CHAT_H

@@ -1,4 +1,5 @@
 #include "profilewidget.h"
+#include "chat.h"
 
 ProfileWidget::ProfileWidget(const QString &name, QWidget *parent)
     : QWidget(parent)
@@ -24,4 +25,17 @@ ProfileWidget::ProfileWidget(const QString &name, QWidget *parent)
 void ProfileWidget::onButtonClicked() {
     // Slot function to handle button click
     qDebug() << "Button clicked for profile:" << nameLabel->text();
+    Chat::SetOtherUser(GetUser());
+    buttonFunc();
+}
+
+void ProfileWidget::SetUser(const User& user){
+    this->user = user;
+}
+User& ProfileWidget::GetUser(){
+    return user;
+}
+
+void ProfileWidget::SetButtonFunc(std::function<void()> buttonFunc){
+    this->buttonFunc = buttonFunc;
 }

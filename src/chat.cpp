@@ -37,6 +37,7 @@ Chat::Chat(QWidget *parent) : QWidget(parent)
     profilesLayout = new QVBoxLayout(ui->profilesTab);
 
 
+
 }
 
 Chat::~Chat()
@@ -85,8 +86,25 @@ void Chat::on_searchBar_textChanged(const QString &arg1)
         const QString &profileUsername = userList[i].GetUsername();
         // Create a ProfileWidget instance with the name
         ProfileWidget *profileWidget = new ProfileWidget(profileUsername, this);
+        profileWidget->SetUser(userList[i]);
+        profileWidget->SetButtonFunc([this](){
+            ui->othersName->setText(GetOtherUser().GetUsername());
+        });
+        qDebug() << profileWidget->GetUser().GetUsername();
+
         profilesLayout->addWidget(profileWidget);
     }
     ui->profilesTab->setLayout(profilesLayout);
+}
+
+User Chat::otherUser;
+
+void Chat::SetOtherUser(const User& other){
+    otherUser = other;
+
+}
+
+User& Chat::GetOtherUser(){
+    return otherUser;
 }
 
