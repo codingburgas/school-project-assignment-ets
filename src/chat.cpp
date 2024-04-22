@@ -34,6 +34,8 @@ Chat::Chat(QWidget *parent) : QWidget(parent)
     ui->searchBar->setPlaceholderText("Search...");
     ui->messageField->setPlaceholderText("Type a message...");
 
+    profilesLayout = new QVBoxLayout(ui->profilesTab);
+
 
 }
 
@@ -74,25 +76,18 @@ void Chat::on_sendMessage_clicked()
 void Chat::on_searchBar_textChanged(const QString &arg1)
 {
     userList = SearchUsersByUsername(arg1);
-    qDebug() << arg1 << " ";
-
-
-    QVBoxLayout *profilesLayout = new QVBoxLayout(ui->profilesTab);
     // ui->groupBox_2->setStyleSheet("background-color: lightgray; border: 1px solid gray; padding: 10px;");
-    QLayoutItem* item;
-    while ((item = ui->profilesTab->layout()->takeAt(0)) != nullptr) {
-        delete item->widget(); // Release memory
-        delete item; // Release memory
-    }
 
+    while (QLayoutItem* item = profilesLayout->takeAt(0)) {
+        delete item->widget();
+        delete item;
+    }
     for (size_t i = 0; i < userList.size(); ++i) {
         const QString &profileUsername = userList[i].GetUsername();
+        // Create a ProfileWidget instance with the name
         ProfileWidget *profileWidget = new ProfileWidget(profileUsername, this);
         profilesLayout->addWidget(profileWidget);
     }
-
     ui->profilesTab->setLayout(profilesLayout);
-
-    delete profilesLayout;
 }
 

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "user.h"
+#include <QVBoxLayout>
 namespace Ui {
 class Chat;
 }
@@ -31,6 +32,7 @@ private slots:
 private:
     Ui::Chat *ui;
     std::vector<User> userList;
+    QVBoxLayout *profilesLayout;
 };
 
 #endif // CHAT_H
