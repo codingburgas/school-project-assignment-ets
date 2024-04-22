@@ -35,21 +35,6 @@ Chat::Chat(QWidget *parent) : QWidget(parent)
     ui->messageField->setPlaceholderText("Type a message...");
 
 
-    QVBoxLayout *profilesLayout = new QVBoxLayout(ui->profilesTab);
-    // ui->groupBox_2->setStyleSheet("background-color: lightgray; border: 1px solid gray; padding: 10px;");
-
-    // Dummy data, replace this with your actual profile data
-    QString profiles[] = {"Alice", "Bob", "Charlie", "Todor"};
-    int numProfiles = sizeof(profiles) / sizeof(profiles[0]);
-
-    for (int i = 0; i < numProfiles; ++i) {
-        const QString &profile = profiles[i];
-        // Create a ProfileWidget instance with the name
-        ProfileWidget *profileWidget = new ProfileWidget(profile, this);
-        profilesLayout->addWidget(profileWidget);
-    }
-
-    ui->profilesTab->setLayout(profilesLayout);
 }
 
 Chat::~Chat()
@@ -90,5 +75,24 @@ void Chat::on_searchBar_textChanged(const QString &arg1)
 {
     userList = SearchUsersByUsername(arg1);
     qDebug() << arg1 << " ";
+
+
+    QVBoxLayout *profilesLayout = new QVBoxLayout(ui->profilesTab);
+    // ui->groupBox_2->setStyleSheet("background-color: lightgray; border: 1px solid gray; padding: 10px;");
+    QLayoutItem* item;
+    while ((item = ui->profilesTab->layout()->takeAt(0)) != nullptr) {
+        delete item->widget(); // Release memory
+        delete item; // Release memory
+    }
+
+    for (size_t i = 0; i < userList.size(); ++i) {
+        const QString &profileUsername = userList[i].GetUsername();
+        ProfileWidget *profileWidget = new ProfileWidget(profileUsername, this);
+        profilesLayout->addWidget(profileWidget);
+    }
+
+    ui->profilesTab->setLayout(profilesLayout);
+
+    delete profilesLayout;
 }
 

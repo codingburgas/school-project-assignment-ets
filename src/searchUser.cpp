@@ -4,11 +4,12 @@ std::vector<User> SearchUsersByUsername(const QString& username) {
     std::shared_ptr<DatabaseManager> instance = DatabaseManager::GetInstance();
     QSqlDatabase db = instance->GetDatabase();
     std::vector<User> foundUsers;
-
+    if(username=="") return foundUsers;
     if (!db.open()) {
         qDebug() << "Failed to open database:" /*<< db.lastError().text()*/;
         return foundUsers;
     }
+
 
     QString queryString = "SELECT username, email, id FROM users WHERE LOWER(username) LIKE :username";
     QSqlQuery query;

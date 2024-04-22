@@ -2,7 +2,7 @@
 #define CHAT_H
 
 #include <QWidget>
-
+#include "user.h"
 namespace Ui {
 class Chat;
 }
@@ -30,6 +30,7 @@ private slots:
 
 private:
     Ui::Chat *ui;
+    std::vector<User> userList;
 };
 
 #endif // CHAT_H
