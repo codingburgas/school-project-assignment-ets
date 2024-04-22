@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <databaseManager.h>
 #include <memory>
+#include "searchUser.h"
 
 int main(int argc, char *argv[])
 {

@@ -20,7 +20,9 @@ SOURCES += \
     profilewidget.cpp \
     register.cpp \
     encrypt.cpp \
-    signin.cpp
+    searchUser.cpp \
+    signin.cpp \
+    user.cpp
 
 HEADERS += \
     encrypt.h \
@@ -30,7 +32,9 @@ HEADERS += \
     mainwindow.h \
     profilewidget.h \
     register.h \
-    signin.h
+    searchUser.h \
+    signin.h \
+    user.h
 
 FORMS += \
     blueprintwidget.ui \
