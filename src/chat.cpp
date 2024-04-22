@@ -1,5 +1,6 @@
 #include "chat.h"
 #include "ui_chat.h"
+#include "profilewidget.h"
 
 Chat::Chat(QWidget *parent)
     : QWidget(parent)
@@ -32,6 +33,20 @@ Chat::Chat(QWidget *parent)
 
     ui->searchBar->setPlaceholderText("Search...");
     ui->messageField->setPlaceholderText("Type a message...");
+
+
+
+    QVBoxLayout *profilesLayout = new QVBoxLayout(ui->groupBox_2);
+
+    // Dummy data, replace this with your actual profile data
+    QList<QPair<QString, QColor>> profiles = {{"Alice", Qt::red}, {"Bob", Qt::green}, {"Charlie", Qt::blue}};
+
+    foreach (const auto &profile, profiles) {
+        ProfileWidget *profileWidget = new ProfileWidget(profile.first, profile.second, this);
+        profilesLayout->addWidget(profileWidget);
+    }
+
+    ui->groupBox_2->setLayout(profilesLayout);
 }
 
 Chat::~Chat()
