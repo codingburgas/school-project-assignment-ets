@@ -11,18 +11,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     secondScene = std::make_shared<BlueprintWidget>();
+    chatScene = std::make_shared<Chat>();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-void MainWindow::on_pushButton_clicked()
-{
-    ui->ETSlabel->setText("Clicked!");
-}
-
 
 void MainWindow::on_quitButton_clicked()
 {
@@ -43,3 +38,7 @@ void MainWindow::on_openBlueprintButton_clicked()
     secondScene->show();
 }
 
+void MainWindow::on_pushButton_clicked(){
+    this->hide();
+    chatScene->show();
+}

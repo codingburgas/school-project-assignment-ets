@@ -25,10 +25,13 @@ Chat::Chat(QWidget *parent)
     ui->chatButton->setIcon(chatIcon);
     ui->chatButton->setIconSize(iconSize);
 
-    QSize iconSize2(20,20);
+    QSize iconSize2(30,30);
     QIcon saveIcon(assetPath + "SaveButton.png");
     ui->sendMessage->setIcon(saveIcon);
     ui->sendMessage->setIconSize(iconSize2);
+
+    ui->searchBar->setPlaceholderText("Search...");
+    ui->messageField->setPlaceholderText("Type a message...");
 }
 
 Chat::~Chat()
