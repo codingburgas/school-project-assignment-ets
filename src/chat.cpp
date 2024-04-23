@@ -36,7 +36,7 @@ Chat::Chat(QWidget *parent) : QWidget(parent)
 
     profilesLayout = new QVBoxLayout(ui->profilesTab);
 
-
+    userList = GetAllUsers();
 
 }
 
@@ -76,17 +76,23 @@ void Chat::on_sendMessage_clicked()
 
 void Chat::on_searchBar_textChanged(const QString &arg1)
 {
-    userList = SearchUsersByUsername(arg1);
+    std::vector<User> foundUserList;
+
+    for( User& user : userList){
+        if(user.GetUsername().contains(arg1, Qt::CaseInsensitive)) {
+            foundUserList.push_back(user);
+        }
+    }
 
     while (QLayoutItem* item = profilesLayout->takeAt(0)) {
         delete item->widget();
         delete item;
     }
-    for (size_t i = 0; i < userList.size(); ++i) {
-        const QString &profileUsername = userList[i].GetUsername();
+    for (size_t i = 0; i < foundUserList.size(); ++i) {
+        const QString &profileUsername = foundUserList[i].GetUsername();
         // Create a ProfileWidget instance with the name
         ProfileWidget *profileWidget = new ProfileWidget(profileUsername, this);
-        profileWidget->SetUser(userList[i]);
+        profileWidget->SetUser(foundUserList[i]);
         profileWidget->SetButtonFunc([this](){
             ui->othersName->setText(GetOtherUser().GetUsername());
         });
