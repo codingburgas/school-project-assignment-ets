@@ -17,6 +17,7 @@ SOURCES += \
     databaseManager.cpp \
     main.cpp \
     mainwindow.cpp \
+    message.cpp \
     profilewidget.cpp \
     register.cpp \
     encrypt.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     chat.h \
     databaseManager.h \
     mainwindow.h \
+    message.h \
     profilewidget.h \
     register.h \
     searchUser.h \

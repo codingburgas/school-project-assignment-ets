@@ -4,6 +4,8 @@
 #include <QWidget>
 #include "user.h"
 #include <QVBoxLayout>
+#include "message.h"
+
 namespace Ui {
 class Chat;
 }
@@ -38,6 +40,7 @@ private:
     QVBoxLayout *profilesLayout;
     static User otherUser;
     static User user;
+
 };
 
 #endif // CHAT_H
