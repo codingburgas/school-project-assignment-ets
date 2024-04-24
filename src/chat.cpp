@@ -2,6 +2,8 @@
 #include "ui_chat.h"
 #include "profilewidget.h"
 #include "searchUser.h"
+#include "messagewidget.h"
+
 
 Chat::Chat(QWidget *parent) : QWidget(parent)
     , ui(new Ui::Chat)
@@ -38,6 +40,8 @@ Chat::Chat(QWidget *parent) : QWidget(parent)
 
     userList = GetAllUsers();
 
+    QVBoxLayout *messageTabLayout = new QVBoxLayout(ui->messagesTab);
+    ui->messagesTab->setLayout(messageTabLayout);
 }
 
 Chat::~Chat()
@@ -69,9 +73,27 @@ void Chat::on_homeButton_clicked()
 }
 
 
-void Chat::on_sendMessage_clicked()
-{
+void Chat::on_sendMessage_clicked() {
+    QString messageText = ui->messageField->text();
 
+    if (!messageText.isEmpty()) {
+        // Create a new MessageWidget with the message text
+        MessageWidget *messageWidget = new MessageWidget(messageText, this);
+
+        // Retrieve the layout of the MessageTab
+        QVBoxLayout *messageTabLayout = qobject_cast<QVBoxLayout*>(ui->messagesTab->layout());
+        messageTabLayout->setAlignment(Qt::AlignRight);
+
+        messageTabLayout->addStretch();
+
+        // Add the MessageWidget to the layout of the MessageTab
+        if (messageTabLayout) {
+            messageTabLayout->addWidget(messageWidget);
+        }
+
+        // Clear the message field after sending the message
+        ui->messageField->clear();
+    }
 }
 
 void Chat::on_searchBar_textChanged(const QString &arg1)

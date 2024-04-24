@@ -18,6 +18,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     message.cpp \
+    messagewidget.cpp \
     profilewidget.cpp \
     register.cpp \
     encrypt.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     databaseManager.h \
     mainwindow.h \
     message.h \
+    messagewidget.h \
     profilewidget.h \
     register.h \
     searchUser.h \
@@ -42,6 +44,7 @@ FORMS += \
     blueprintwidget.ui \
     chat.ui \
     mainwindow.ui \
+    messagewidget.ui \
     register.ui \
     signin.ui \
     subject.ui

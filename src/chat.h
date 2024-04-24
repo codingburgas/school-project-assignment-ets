@@ -5,6 +5,9 @@
 #include "user.h"
 #include <QVBoxLayout>
 #include "message.h"
+#include <QScrollArea>
+#include <QScrollBar>
+
 
 namespace Ui {
 class Chat;
