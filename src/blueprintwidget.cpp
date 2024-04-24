@@ -9,6 +9,9 @@ BlueprintWidget::BlueprintWidget(QWidget *parent)
     , ui(new Ui::BlueprintWidget)
 {
     ui->setupUi(this);
+
+    QString buttonStylesheet = "QPushButton:hover { background-color: grey;} QPushButton {background-color: transparent;}";
+
     QString assetPath = ":/assets/assets/";
     QPixmap blueprintPix(assetPath + "blueprint-background.png");
     ui->blueprintPic->setPixmap(blueprintPix);
@@ -16,14 +19,17 @@ BlueprintWidget::BlueprintWidget(QWidget *parent)
 
     QSize iconSize(50,50);
     QIcon chatIcon(assetPath + "ChatButton.png");
+    ui->chatButton->setStyleSheet(buttonStylesheet);
     ui->chatButton->setIcon(chatIcon);
     ui->chatButton->setIconSize(iconSize);
 
     QIcon adminIcon(assetPath + "AdminButton.png");
+    ui->adminButton->setStyleSheet(buttonStylesheet);
     ui->adminButton->setIcon(adminIcon);
     ui->adminButton->setIconSize(iconSize);
 
     QIcon courseIcon(assetPath + "CourseButton.png");
+    ui->pushButton->setStyleSheet(buttonStylesheet);
     ui->pushButton->setIcon(courseIcon);
     ui->pushButton->setIconSize(iconSize);
 }
@@ -51,4 +57,3 @@ void BlueprintWidget::on_chatButton_clicked()
     this->hide();
     signInScene->show();
 }
-

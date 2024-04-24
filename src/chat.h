@@ -7,7 +7,7 @@
 #include "message.h"
 #include <QScrollArea>
 #include <QScrollBar>
-
+#include <QTimer>
 
 namespace Ui {
 class Chat;
@@ -37,13 +37,17 @@ private slots:
 
     void on_searchBar_textChanged(const QString &arg1);
 
+    void updateMessages();
+
 private:
     Ui::Chat *ui;
     std::vector<User> userList;
     QVBoxLayout *profilesLayout;
     static User otherUser;
     static User user;
-
+    std::vector<Message> sentMessages;
+    std::vector<Message> receivedMessages;
+    QTimer *messageTimer;
 };
 
 #endif // CHAT_H

@@ -29,31 +29,39 @@ std::vector<Message> GetMessagesFromChat(int senderId, int recId){
     QSqlDatabase db = DatabaseManager::GetInstance()->GetDatabase();
     std::vector<Message> messages;
 
-    QString queryString = "SELECT * FROM chats WHERE senderId = :senderId AND recId = :recId ORDER BY time ASC";
+    QString queryString = "SELECT * FROM chats WHERE sender_id = :sender_id AND rec_id = :rec_id ORDER BY time ASC";
     QSqlQuery query;
     query.prepare(queryString);
-    query.bindValue(":senderId", senderId);
-    query.bindValue(":recId", recId);
+    query.bindValue(":sender_id", senderId);
+    query.bindValue(":rec_id", recId);
 
     query.exec();
     while(query.next()){
         Message message( senderId, recId, query.value(2).toString(), query.value(3).toString() );
         messages.push_back(message);
     }
+
+
     return messages;
 }
 
+void SendMessage(int senderId, int recId, QString text){
 
-void sendMessage(int senderId, int recId, QString text){
     QSqlDatabase db = DatabaseManager::GetInstance()->GetDatabase();
     QString encryptedText = Encrypt(text);
 
-    QString queryString = "INSERT INTO chats (senderId, recId, text) VALUES (:senderId, :recId, :text)";
+    QString queryString = "INSERT INTO chats (sender_id, rec_id, message) VALUES (:sender_id, :rec_id, :message)";
     QSqlQuery query;
     query.prepare(queryString);
-    query.bindValue(":senderId", senderId);
-    query.bindValue(":recId", recId);
-    query.bindValue(":text", encryptedText);
+    query.bindValue(":sender_id", senderId);
+    query.bindValue(":rec_id", recId);
+    query.bindValue(":message", encryptedText);
 
-    query.exec();
+    if(!query.exec()) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        // Handle the error, such as logging or displaying an error message
+        return;
+    }
+
+    qDebug() << "Message sent successfully";
 }

@@ -4,7 +4,7 @@
 #include "encrypt.h"
 #include "databaseManager.h"
 #include <QSql>
-#include <QSqlDatabase>>
+#include <QSqlDatabase>
 
 class Message {
 private:
@@ -20,6 +20,7 @@ public:
     int GetRecId();
 };
 
-std::vector<Message> GetSentMessagesFromChat(int senderId, int recId);
+std::vector<Message> GetMessagesFromChat(int senderId, int recId);
 
+void SendMessage(int senderId, int recId, QString text);
 #endif // MESSAGE_H
