@@ -4,18 +4,17 @@
 ProfileWidget::ProfileWidget(const QString &name, QWidget *parent)
     : QWidget(parent)
 {
-    // Set background color and border for the main container widget
     QString styleSheet = "QWidget { background-color: #1B262C; border: 1px solid gray; padding: 10px; border-radius: 5px; color: white;}";
     this->setStyleSheet(styleSheet);
 
     nameLabel = new QLabel(name, this);
 
-    QPushButton *button = new QPushButton("Message", this); // Create a button
-    connect(button, &QPushButton::clicked, this, &ProfileWidget::onButtonClicked); // Connect its clicked signal to a slot
+    QPushButton *button = new QPushButton("Message", this);
+    connect(button, &QPushButton::clicked, this, &ProfileWidget::onButtonClicked);
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(nameLabel);
-    layout->addWidget(button); // Add the button to the layout
+    layout->addWidget(button);
 
     setFixedHeight(100);
 

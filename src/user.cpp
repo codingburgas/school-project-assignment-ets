@@ -1,5 +1,5 @@
 #include "user.h"
-
+//Initializing the user
 QString& User::GetUsername() {
     return username;
 }

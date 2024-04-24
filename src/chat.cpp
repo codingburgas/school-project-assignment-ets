@@ -9,7 +9,7 @@ Chat::Chat(QWidget *parent) : QWidget(parent)
     , ui(new Ui::Chat)
 {
     ui->setupUi(this);
-
+    //Chat constructor
     QSize iconSize(50,50);
     QString assetPath = ":/assets/assets/";
     QIcon courseIcon(assetPath + "CourseButton.png");
@@ -45,7 +45,7 @@ Chat::Chat(QWidget *parent) : QWidget(parent)
 
     messageTimer = new QTimer(this);
     connect(messageTimer, &QTimer::timeout, this, &Chat::updateMessages);
-    messageTimer->start(5000); // Update messages every 1000 milliseconds (1 second)
+    messageTimer->start(5000);
 
 
     QShortcut *shortcut = new QShortcut(QKeySequence(Qt::Key_Return), this);
@@ -53,32 +53,9 @@ Chat::Chat(QWidget *parent) : QWidget(parent)
 }
 Chat::~Chat()
 {
+    //Chat destructor
     delete ui;
 }
-
-void Chat::on_adminButton_clicked()
-{
-
-}
-
-
-void Chat::on_chatButton_clicked()
-{
-
-}
-
-
-void Chat::on_courseButton_clicked()
-{
-
-}
-
-
-void Chat::on_homeButton_clicked()
-{
-
-}
-
 
 void Chat::on_sendMessage_clicked() {
     QString messageText = ui->messageField->text();
@@ -88,7 +65,7 @@ void Chat::on_sendMessage_clicked() {
     ui->messageField->setText("");
     }
 }
-
+//Method function for searching with the search bar
 void Chat::on_searchBar_textChanged(const QString &arg1)
 {
     std::vector<User> foundUserList;
@@ -105,7 +82,6 @@ void Chat::on_searchBar_textChanged(const QString &arg1)
     }
     for (size_t i = 0; i < foundUserList.size(); ++i) {
         const QString &profileUsername = foundUserList[i].GetUsername();
-        // Create a ProfileWidget instance with the name
         ProfileWidget *profileWidget = new ProfileWidget(profileUsername, this);
         profileWidget->SetUser(foundUserList[i]);
         profileWidget->SetButtonFunc([this](){
@@ -137,25 +113,21 @@ User& Chat::GetUser(){
     return user;
 }
 
-
+//Function for updating messages
 void Chat::updateMessages()
 {
-    // Get the latest sent and received messages
     sentMessages = GetMessagesFromChat(Chat::GetUser().GetId(), Chat::GetOtherUser().GetId());
     receivedMessages = GetMessagesFromChat(Chat::GetOtherUser().GetId(), Chat::GetUser().GetId());
 
-    // Update sent messages
     if (!sentMessages.empty()) {
         QVBoxLayout *messageTabLayout = qobject_cast<QVBoxLayout*>(ui->messagesTab->layout());
         if (messageTabLayout) {
-            // Clear the existing message widgets before adding new ones
             QLayoutItem *child;
             while ((child = messageTabLayout->takeAt(0)) != nullptr) {
                 delete child->widget();
                 delete child;
             }
 
-            // Add new message widgets for sent messages
             for (size_t i = sentMessages.size()>10?sentMessages.size()-10:0; i<sentMessages.size() ;i++) {
                 QString messageText = sentMessages[i].GetText();
                 if (!messageText.isEmpty()) {
@@ -167,10 +139,7 @@ void Chat::updateMessages()
         }
     }
 
-    // Update received messages
-    // Note: You may want to handle received messages similarly
 
-    // Clear the message field after sending the message
     ui->messageField->clear();
 }
 

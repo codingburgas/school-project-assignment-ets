@@ -59,7 +59,6 @@ void SendMessage(int senderId, int recId, QString text){
 
     if(!query.exec()) {
         qDebug() << "Error executing query:" << query.lastError().text();
-        // Handle the error, such as logging or displaying an error message
         return;
     }
 

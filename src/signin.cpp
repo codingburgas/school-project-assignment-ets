@@ -17,6 +17,7 @@ SignIn::~SignIn()
 {
     delete ui;
 }
+//Method for sending the credentials to the database
 
 void SignIn::on_pushButton_clicked()
 {

@@ -8,6 +8,7 @@ BlueprintWidget::BlueprintWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::BlueprintWidget)
 {
+    //Blueprint class constructor
     ui->setupUi(this);
 
     QString buttonStylesheet = "QPushButton:hover { background-color: grey;} QPushButton {background-color: transparent;}";
@@ -35,6 +36,7 @@ BlueprintWidget::BlueprintWidget(QWidget *parent)
 }
 BlueprintWidget::~BlueprintWidget()
 {
+    //Blueprint class destructor
     delete ui;
 }
 

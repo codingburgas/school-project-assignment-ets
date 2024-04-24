@@ -18,7 +18,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+//Quit button method
 void MainWindow::on_quitButton_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Quit", "Are you sure you want to quit the application?", QMessageBox::Yes | QMessageBox::No);

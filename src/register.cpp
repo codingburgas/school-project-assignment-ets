@@ -15,7 +15,7 @@ Register::~Register()
 {
     delete ui;
 }
-
+//Method for sending the credentials to the database
 void Register::on_pushButton_clicked()
 {
     this->hide();
