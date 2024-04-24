@@ -42,3 +42,18 @@ std::vector<Message> GetMessagesFromChat(int senderId, int recId){
     }
     return messages;
 }
+
+
+void sendMessage(int senderId, int recId, QString text){
+    QSqlDatabase db = DatabaseManager::GetInstance()->GetDatabase();
+    QString encryptedText = Encrypt(text);
+
+    QString queryString = "INSERT INTO chats (senderId, recId, text) VALUES (:senderId, :recId, :text)";
+    QSqlQuery query;
+    query.prepare(queryString);
+    query.bindValue(":senderId", senderId);
+    query.bindValue(":recId", recId);
+    query.bindValue(":text", encryptedText);
+
+    query.exec();
+}
