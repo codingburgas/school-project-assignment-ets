@@ -45,8 +45,11 @@ Chat::Chat(QWidget *parent) : QWidget(parent)
 
     messageTimer = new QTimer(this);
     connect(messageTimer, &QTimer::timeout, this, &Chat::updateMessages);
-    messageTimer->start(3000); // Update messages every 1000 milliseconds (1 second)
+    messageTimer->start(5000); // Update messages every 1000 milliseconds (1 second)
 
+
+    QShortcut *shortcut = new QShortcut(QKeySequence(Qt::Key_Return), this);
+    connect(shortcut, &QShortcut::activated, ui->sendMessage, &QPushButton::click);
 }
 Chat::~Chat()
 {
@@ -79,10 +82,11 @@ void Chat::on_homeButton_clicked()
 
 void Chat::on_sendMessage_clicked() {
     QString messageText = ui->messageField->text();
+    if(messageText!=""){
     qDebug() << Chat::GetUser().GetId() << Chat::GetOtherUser().GetId();
     SendMessage(Chat::GetUser().GetId(), Chat::GetOtherUser().GetId(), messageText);
-
-
+    ui->messageField->setText("");
+    }
 }
 
 void Chat::on_searchBar_textChanged(const QString &arg1)
@@ -152,7 +156,7 @@ void Chat::updateMessages()
             }
 
             // Add new message widgets for sent messages
-            for (size_t i = 0; i<sentMessages.size() ;i++) {
+            for (size_t i = sentMessages.size()>10?sentMessages.size()-10:0; i<sentMessages.size() ;i++) {
                 QString messageText = sentMessages[i].GetText();
                 if (!messageText.isEmpty()) {
                     MessageWidget *messageWidget = new MessageWidget(Decrypt(messageText), this);

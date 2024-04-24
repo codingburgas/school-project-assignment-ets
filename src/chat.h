@@ -8,6 +8,7 @@
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QTimer>
+#include <QShortcut>
 
 namespace Ui {
 class Chat;
