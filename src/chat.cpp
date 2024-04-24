@@ -82,7 +82,7 @@ void Chat::on_homeButton_clicked()
 
 void Chat::on_sendMessage_clicked() {
     QString messageText = ui->messageField->text();
-    if(messageText!=""){
+    if(messageText!="" && Chat::GetOtherUser().GetId()!=0){
     qDebug() << Chat::GetUser().GetId() << Chat::GetOtherUser().GetId();
     SendMessage(Chat::GetUser().GetId(), Chat::GetOtherUser().GetId(), messageText);
     ui->messageField->setText("");

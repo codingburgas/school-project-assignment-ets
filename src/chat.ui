@@ -199,7 +199,7 @@ border-radius: 10px;</string>
 font-size: 35px;</string>
      </property>
      <property name="text">
-      <string>Ivan Petkov</string>
+      <string/>
      </property>
     </widget>
    </widget>

@@ -46,6 +46,5 @@ void Register::on_pushButton_clicked()
     }
     chatScene->show();
     Chat::SetUser(GetUserByEmailAndPassword(email, password));
-    db.close();
 }
 

@@ -4,7 +4,7 @@ MessageWidget::MessageWidget(const QString &message, QWidget *parent)
     : QWidget(parent)
 {
     // Set background color and border for the message widget
-    QString styleSheet = "QWidget { background-color: white; border: 1px solid gray; padding: 10px; color: black;}";
+    QString styleSheet = "QWidget { background-color: white; padding: 10px; color: black; border-radius: 5px; font-size: 15px}";
     this->setStyleSheet(styleSheet);
 
     // Create a label for the message
